@@ -17,3 +17,7 @@
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
 TARGET_KERNEL_CONFIG := lineage_on7xelte_defconfig
+
+LOCAL_KERNEL := device/samsung/on7xelte/Image
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
