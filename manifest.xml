@@ -15,7 +15,7 @@
     <!--
         Camera
       -->
-    <hal format="hidl">
+    <!--hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
         <version>2.4</version>
@@ -23,7 +23,7 @@
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
         </interface>
-    </hal>
+    </hal-->
 
     <!--
         Cas
@@ -43,14 +43,14 @@
       -->
     <hal format="hidl">
         <name>android.hardware.configstore</name>
+	<impl level="generic"></impl>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>ISurfaceFlingerConfigs</name>
             <instance>default</instance>
         </interface>
     </hal>
-
     <!--
         DRM
       -->
@@ -132,6 +132,18 @@
         </interface>
     </hal>
 
+    <!-- HWC 1 -->
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport arch="32">passthrough</transport>
+        <impl level="generic"></impl>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
     <!--
         Keymaster
       -->
@@ -147,7 +159,7 @@
 
     <!--
         Lights
-      -->
+      
     <hal format="hidl">
         <name>android.hardware.light</name>
         <transport arch="32">passthrough</transport>
@@ -156,7 +168,7 @@
             <name>ILight</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal>-->
 
     <!--
         Memtracker
@@ -230,7 +242,7 @@
     <!--
         Sensors
       -->
-    <hal format="hidl">
+    <!--hal format="hidl">
         <name>android.hardware.sensors</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -238,7 +250,7 @@
             <name>ISensors</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal-->
 
     <!--
         USB

@@ -14,17 +14,22 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/on7xelte
+# Inherit device configuration
+$(call inherit-product, device/samsung/on7xelte/device.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+# Inherit from those products. Most specific first
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
+# Inherit some common PEX stuff
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-# include splitted configs
--include $(LOCAL_PATH)/product/*.mk
+# Device identifier
+PRODUCT_NAME := aosp_on7xelte
+PRODUCT_DEVICE := on7xelte
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
-# Inherit from Exynos7870-common
-$(call inherit-product, device/samsung/exynos7870-common/device-common.mk)
-
-# call the proprietary setup
-$(call inherit-product, vendor/samsung/on7xelte/on7xelte-vendor.mk)
+# Pex stuff
+TARGET_GAPPS_ARCH=arm
+TARGET_DENSITY=xxhdpi
